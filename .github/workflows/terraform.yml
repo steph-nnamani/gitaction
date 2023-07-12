@@ -1,0 +1,24 @@
+name: Terraform  #name of our workflow
+
+on:        #what event triggers it
+  push
+
+jobs:
+  terraform:   #name of the job
+    runs-on: ubuntu-latest  #running environment or instance
+
+    defaults:  #used to set up defaults
+      run:
+        shell: bash   #sets the shell of the instance to bash
+
+    steps:      #These are the steps to be followed to accomplish the job     
+      - name: Checkout  #always the first step; cloning the code
+        uses: actions/checkout@v3  #uses is the flag for calling predefined action
+      - name: Setup Terraform  #here we setup terraform
+        uses: hashicorp/setup-terraform@v2  #another predefined action; sets up terra in the runner
+        with:
+          terraform_version: 1.1.9  #specifying the specific version
+      - name: Init
+        run: terraform init
+      - name: fmt
+        run: terraform fmt --check  #--check is used to constraint it to only check the fmt
