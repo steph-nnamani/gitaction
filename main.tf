@@ -57,15 +57,15 @@ resource "aws_instance" "web" {
 
 
 #resource "aws_iam_user" "devops" {
-name     = each.value
-for_each = toset(var.iam-user)
+#name     = each.value
+##for_each = toset(var.iam-user)
 #path = "/system/"
-force_destroy = var.force_destroy
+#force_destroy = var.force_destroy
 
 
-tags = {
-  Description = "Devops Team Member"
-}
+#tags = {
+#Description = "Devops Team Member"
+#}
 #}
 #this need to be revisited
 #resource "aws_iam_access_key" "devops-key" {
