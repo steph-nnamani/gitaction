@@ -11,14 +11,14 @@ provider "aws" {
   region = var.region
 
 }
-resource "aws_s3_bucket" "steve-backend_01" {
-  bucket = "steve-tf-state-bucket01"
+#resource "aws_s3_bucket" "steve-backend_01" {
+#bucket = "steve-tf-state-bucket01"
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
-}
+#tags = {
+#Name        = "My bucket"
+#Environment = "Dev"
+#}
+#}
 
 terraform {
   backend "s3" {
@@ -101,7 +101,7 @@ variable "force_destroy" {
 #for_each implementation
 variable "iam-user" {
   type    = list(string)
-  default = ["chidiogo"]
+  default = ["anna"]
 
 }
 
