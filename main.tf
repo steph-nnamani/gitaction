@@ -74,11 +74,11 @@ resource "aws_iam_user" "devops" {
 # user = aws_iam_user.devops.name
 #}
 
-resource "aws_iam_policy" "poweruser" {
-  name        = "devops-policy"
-  description = "A limited devops policy"
-  policy      = file("aws-poweruser-policy.json")
-}
+#resource "aws_iam_policy" "poweruser" {
+#name        = "devops-policy"
+#description = "A limited devops policy"
+#policy      = file("aws-poweruser-policy.json")
+#}
 
 resource "aws_iam_user_policy_attachment" "policy-attach" {
   for_each   = toset(var.iam-user)
