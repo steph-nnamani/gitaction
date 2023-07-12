@@ -11,6 +11,56 @@ provider "aws" {
   region = var.region
 
 }
+resource "aws_s3_bucket" "backend" {
+  bucket = "my-tf-state-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
+terraform {
+  backend "s3" {
+    bucket = "my-tf-state-bucket"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+#The data "aws_ami" "ubuntu" block retrieves information about the
+# most recent Ubuntu AMI matching the specified filters.
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "region"
+    values = ["us-east-1"]
+  }
+
+  owners = ["099720109477"] # Canonical -specifies the owner ID for the AMI.
+}
+
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+
 
 resource "aws_iam_user" "devops" {
   name     = each.value
