@@ -28,3 +28,5 @@ jobs:
         run: terraform validate
       - name: plan
         run: terraform plan
+      - name: apply
+        run: terraform apply -auto-approve
