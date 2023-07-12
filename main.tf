@@ -20,13 +20,13 @@ resource "aws_s3_bucket" "steve-backend_01" {
   }
 }
 
-terraform {
-  backend "s3" {
-    bucket = "steve-tf-state-bucket01"
-    key    = "dev/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
+#terraform {
+ # backend "s3" {
+  #  bucket = "steve-tf-state-bucket01"
+   # key    = "dev/terraform.tfstate"
+    #region = "us-east-1"
+  #}
+#}
 #The data "aws_ami" "ubuntu" block retrieves information about the
 # most recent Ubuntu AMI matching the specified filters.
 data "aws_ami" "ubuntu" {
