@@ -3,8 +3,8 @@ name: Terraform  #name of our workflow
 on:        #what event triggers it
   push
 env:
-  AWS_ACCESS_KEY_ID: ${{secret.ACCESS_KEY}}
-  AWS_SECRET_ACCESS_KEY: ${{secret.SECRET_KEY}}
+  AWS_ACCESS_KEY_ID: ${{secrets.ACCESS_KEY}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.SECRET_KEY}}
 jobs:
   terraform:   #name of the job
     runs-on: ubuntu-latest  #running environment or instance
