@@ -16,6 +16,8 @@ jobs:
           pwd
   run-windows-command:
     runs-on: windows-latest
+    #the needs flag below sets this second job to depend on the first job run
+    needs: ["run-shell-command"] 
     steps:
       - name: Directory
         run: Get-Location
