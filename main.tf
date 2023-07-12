@@ -12,7 +12,7 @@ provider "aws" {
 
 }
 resource "aws_s3_bucket" "steve-backend_01" {
-  bucket = "my-tf-state-bucket"
+  bucket = "steve-tf-state-bucket01"
 
   tags = {
     Name        = "My bucket"
@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "steve-backend_01" {
 
 terraform {
   backend "s3" {
-    bucket = "my-tf-state-bucket"
+    bucket = "steve-tf-state-bucket01"
     key    = "dev/terraform.tfstate"
     region = "us-east-1"
   }
