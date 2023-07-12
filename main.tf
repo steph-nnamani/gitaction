@@ -42,10 +42,6 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  filter {
-    name   = "region"
-    values = ["us-east-1"]
-  }
 
   owners = ["099720109477"] # Canonical -specifies the owner ID for the AMI.
 }
