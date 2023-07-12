@@ -22,3 +22,7 @@ jobs:
         run: terraform init
       - name: fmt
         run: terraform fmt --check  #--check is used to constraint it to only check the fmt
+      - name: validate
+        run: terraform validate
+      - name: plan
+        run: terraform plan
