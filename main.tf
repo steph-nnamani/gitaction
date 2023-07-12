@@ -11,7 +11,7 @@ provider "aws" {
   region = var.region
 
 }
-resource "aws_s3_bucket" "backend" {
+resource "aws_s3_bucket" "steve-backend_01" {
   bucket = "my-tf-state-bucket"
 
   tags = {
